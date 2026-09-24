@@ -7,6 +7,11 @@
 *.jpeg
 *.png
 
+# README preview images.
+!public/images/mix_01.png
+!public/images/leh-ladhakh.jpg
+!public/images/edu1.jpg
+
 # Local configuration and runtime output.
 .env
 *.log
