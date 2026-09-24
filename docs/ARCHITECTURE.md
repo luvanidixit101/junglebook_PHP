@@ -1,6 +1,6 @@
 # Application Architecture
 
-Jungle Book is currently a legacy PHP application with direct page-based routing. The target structure below introduces clear ownership while keeping the existing public URLs working during migration.
+Jungle Book uses a public web root with application code and database documentation outside the directly served directory.
 
 ```text
 .
@@ -9,24 +9,28 @@ Jungle Book is currently a legacy PHP application with direct page-based routing
 │   ├── Database/            # Shared database connection and future repositories
 │   ├── Http/                # Future request, response, and validation services
 │   └── Services/            # Future business workflows
-├── admin/                   # Existing admin pages and dashboard assets
+├── public/                  # Web-server document root
+│   ├── admin/               # Admin pages and dashboard assets
+│   ├── cards/               # Card pages and assets
+│   ├── css/                 # Stylesheets
+│   ├── images/              # Local media assets
+│   ├── js/                  # JavaScript assets
+│   └── *.php                # Public pages and forms
 ├── database/                # Schema, migrations, and seed documentation
 ├── docs/                    # Architecture and operational documentation
-├── public/                  # Future web-server document root
 ├── resources/               # Future templates, styles, and front-end sources
 ├── storage/                 # Runtime uploads, logs, and generated files
 ├── bootstrap/                # Future application bootstrap and error handling
-└── *.php                    # Existing compatibility entry points
 ```
 
 ## Current Migration Boundary
 
-- `conn.php` remains a compatibility wrapper for public pages.
-- `admin/includes/dbconnection.php` remains a compatibility wrapper for admin pages.
+- `public/conn.php` is the compatibility wrapper for public pages.
+- `public/admin/includes/dbconnection.php` is the admin compatibility wrapper.
 - Both wrappers now use `app/Database/connection.php`.
 - Public card, gallery, and volunteer pages now use the same connection boundary.
-- Existing page URLs and form contracts are unchanged.
-- New features should be added under `app/`, with thin page entry points only where legacy URLs require them.
+- Page URLs are now relative to the `public/` document root.
+- New features should be added under `app/`, with thin public entry points only where page URLs require them.
 
 ## Recommended Migration Order
 

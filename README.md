@@ -29,19 +29,19 @@ Project media is stored locally and excluded from Git because of repository size
 
 ```text
 .
-├── index.php              # Public home page
-├── about.php              # About page
-├── education.php          # Forest education content
-├── services.php           # Public services
-├── portfolio.php          # Gallery page
-├── contact.php            # Contact page
-├── login_rg.php           # User login and registration flow
-├── conn.php               # Public-site database connection
-├── admin/                 # Admin dashboard and content management
-├── images/                # Public images and media
-├── video/                 # Video assets
-├── css/                   # Shared stylesheets and vendor CSS
-└── js/                    # Shared JavaScript and vendor scripts
+├── app/                   # Application configuration and services
+├── database/              # Schema and database documentation
+├── docs/                  # Architecture and operational documentation
+├── public/                # Web root and public entry points
+│   ├── admin/             # Admin dashboard and content management
+│   ├── cards/             # Card pages and assets
+│   ├── css/               # Stylesheets
+│   ├── images/            # Local media assets
+│   ├── js/                # JavaScript assets
+│   ├── video/             # Local video assets
+│   └── *.php              # Public pages and forms
+├── .env.example           # Local configuration template
+└── README.md
 ```
 
 The maintainable architecture and migration boundary are documented in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md). New database and application code should use `app/` instead of adding more root-level page scripts.
@@ -60,23 +60,23 @@ The maintainable architecture and migration boundary are documented in [docs/ARC
 3. Import the project database schema and seed data if available.
 4. Copy `.env.example` to `.env` and set the local database values.
 5. Start Apache and MySQL.
-6. Open the project in a browser, for example:
+6. Configure Apache or XAMPP to use `public/` as the document root, then open:
 
    ```text
-   http://localhost/aesthetic/index.php
+   http://localhost/index.php
    ```
 
 The admin area is available at:
 
 ```text
-http://localhost/aesthetic/admin/index.php
+http://localhost/admin/index.php
 ```
 
 ## Configuration Notes
 
 - Keep database credentials outside version control for production deployments.
 - The public site and admin area share one connection implementation through compatibility wrappers.
-- Uploaded admin images are stored in `admin/images/`.
+- Uploaded admin images are stored in `public/admin/images/`.
 - Email and OTP-related forms may require SMTP configuration before they work outside a local environment.
 
 ## Credits
