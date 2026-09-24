@@ -1,3 +1,8 @@
 # Video files are large and are not committed to GitHub.
 *.mp4
 video/*.gif
+
+# Image files are kept locally and are not committed to GitHub.
+*.jpg
+*.jpeg
+*.png
