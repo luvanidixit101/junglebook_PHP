@@ -1,2 +1,3 @@
 # Video files are large and are not committed to GitHub.
 *.mp4
+video/*.gif
