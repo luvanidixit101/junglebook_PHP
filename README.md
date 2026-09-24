@@ -4,13 +4,13 @@ Jungle Book is a PHP/MySQL website for an environmental and wildlife-focused non
 
 ## Project Preview
 
-![Jungle Book home hero](public/images/screenshots/home-hero.png)
+![Jungle Book home hero](public/images/screenshots/home-hero.jpg)
 
-![Jungle Book gallery](public/images/screenshots/gallery.png)
+![Jungle Book gallery](public/images/screenshots/gallery.jpg)
 
-![Jungle Book services](public/images/screenshots/services.png)
+![Jungle Book services](public/images/screenshots/services.jpg)
 
-![Jungle Book branding and footer](public/images/screenshots/branding-footer.png)
+![Jungle Book branding and footer](public/images/screenshots/branding-footer.jpg)
 
 The remaining project media is stored locally and excluded from Git because of repository size. A deployment package or object storage bucket should provide the rest of `public/images/` and `public/video/`.
 

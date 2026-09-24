@@ -9,6 +9,7 @@
 
 !public/images/screenshots/
 !public/images/screenshots/*.png
+!public/images/screenshots/*.jpg
 
 # Local configuration and runtime output.
 .env
