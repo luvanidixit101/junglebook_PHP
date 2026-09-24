@@ -1,0 +1,288 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forest Study Program Enrollment</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Forest Study Program Enrollment</h1>
+    <form id="enrollmentForm" action="submit_enrollment.php" method="POST">
+      <!-- Personal Information -->
+      <fieldset>
+        <legend>Personal Information</legend>
+        <div class="form-group">
+          <label for="fullName">Full Name:</label>
+          <input type="text" id="fullName" name="fullName" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number:</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="form-group">
+          <label for="address">Address:</label>
+          <input type="text" id="address" name="address" required>
+        </div>
+        <div class="form-group">
+          <label for="dob">Date of Birth:</label>
+          <input type="date" id="dob" name="dob" required>
+        </div>
+        <div class="form-group">
+          <label for="gender">Gender:</label>
+          <select id="gender" name="gender" required>
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+      </fieldset>
+
+      <!-- Role Information -->
+      <fieldset>
+        <legend>Role Information</legend>
+        <div class="form-group">
+          <label for="role">Role:</label>
+          <select id="role" name="role" required>
+            <option value="">Select Role</option>
+            <option value="student">Student</option>
+            <option value="teacher">Teacher</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="school">School/College Name:</label>
+          <input type="text" id="school" name="school" required>
+        </div>
+        <div class="form-group">
+          <label for="educationLevel">Education Level (if student):</label>
+          <input type="text" id="educationLevel" name="educationLevel">
+        </div>
+        <div class="form-group">
+          <label for="teachingSubject">Teaching Subject (if teacher):</label>
+          <input type="text" id="teachingSubject" name="teachingSubject">
+        </div>
+      </fieldset>
+
+      <!-- Interests and Experience -->
+      <fieldset>
+        <legend>Interests and Experience</legend>
+        <div class="form-group">
+          <label for="areasOfInterest">Areas of Interest (comma-separated):</label>
+          <input type="text" id="areasOfInterest" name="areasOfInterest" required>
+        </div>
+        <div class="form-group">
+          <label for="experience">Relevant Experience:</label>
+          <textarea id="experience" name="experience" rows="4" required></textarea>
+        </div>
+      </fieldset>
+
+      <!-- Additional Information -->
+      <fieldset>
+        <legend>Additional Information</legend>
+        <div class="form-group">
+          <label for="expectations">Expectations from the Program:</label>
+          <textarea id="expectations" name="expectations" rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="comments">Comments or Questions:</label>
+          <textarea id="comments" name="comments" rows="4"></textarea>
+        </div>
+      </fieldset>
+
+      <!-- Submit Button -->
+      <div class="form-group">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+<style>
+  body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #00796b; /* Teal color */
+}
+
+form {
+  margin-top: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  color: #00796b; /* Teal color */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="number"],
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300796b' width='24px' height='24px'%3E%3Cpath d='M7 10l5 5 5-5H7z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+  background-position-y: 50%;
+  background-size: 12px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #00796b; /* Teal color */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #005a4c; /* Darker teal color on hover */
+}
+
+</style>
+<script>
+    // Basic form validation
+document.addEventListener("DOMContentLoaded", function() {
+  const form = document.getElementById("enrollmentForm");
+
+  form.addEventListener("submit", function(event) {
+    const fullName = document.getElementById("fullName").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const address = document.getElementById("address").value;
+    const dob = document.getElementById("dob").value;
+    const gender = document.getElementById("gender").value;
+    const role = document.getElementById("role").value;
+    const school = document.getElementById("school").value;
+    const educationLevel = document.getElementById("educationLevel").value;
+    const teachingSubject = document.getElementById("teachingSubject").value;
+    const areasOfInterest = document.getElementById("areasOfInterest").value;
+    const experience = document.getElementById("experience").value;
+    const expectations = document.getElementById("expectations").value;
+
+    // Simple validation example, you can add more complex validation as needed
+    if (!fullName || !email || !phone || !address || !dob || !gender || !role || !school || !areasOfInterest || !experience || !expectations) {
+      alert("Please fill out all required fields.");
+      event.preventDefault();
+    }
+  });
+});
+
+</script>
+<!--
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enrollment Form Submission</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Thank You for Enrolling!</h1>
+    <div class="submitted-info">
+      <?php
+      if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Personal Information
+        $fullName = $_POST['fullName'];
+        $email = $_POST['email'];
+        $phone = $_POST['phone'];
+        $address = $_POST['address'];
+        $dob = $_POST['dob'];
+        $gender = $_POST['gender'];
+
+        // Role Information
+        $role = $_POST['role'];
+        $school = $_POST['school'];
+        $educationLevel = isset($_POST['educationLevel']) ? $_POST['educationLevel'] : '';
+        $teachingSubject = isset($_POST['teachingSubject']) ? $_POST['teachingSubject'] : '';
+
+        // Interests and Experience
+        $areasOfInterest = $_POST['areasOfInterest'];
+        $experience = $_POST['experience'];
+
+        // Additional Information
+        $expectations = $_POST['expectations'];
+        $comments = $_POST['comments'];
+
+        // Display the submitted data
+        echo "<p><strong>Full Name:</strong> $fullName</p>";
+        echo "<p><strong>Email:</strong> $email</p>";
+        echo "<p><strong>Phone Number:</strong> $phone</p>";
+        echo "<p><strong>Address:</strong> $address</p>";
+        echo "<p><strong>Date of Birth:</strong> $dob</p>";
+        echo "<p><strong>Gender:</strong> $gender</p>";
+
+        echo "<h2>Role Information</h2>";
+        echo "<p><strong>Role:</strong> $role</p>";
+        echo "<p><strong>School/College Name:</strong> $school</p>";
+        if ($role === 'student') {
+          echo "<p><strong>Education Level:</strong> $educationLevel</p>";
+        } elseif ($role === 'teacher') {
+          echo "<p><strong>Teaching Subject:</strong> $teachingSubject</p>";
+        }
+
+        echo "<h2>Interests and Experience</h2>";
+        echo "<p><strong>Areas of Interest:</strong> $areasOfInterest</p>";
+        echo "<p><strong>Relevant Experience:</strong> $experience</p>";
+
+        echo "<h2>Additional Information</h2>";
+        echo "<p><strong>Expectations from the Program:</strong> $expectations</p>";
+        echo "<p><strong>Comments or Questions:</strong> $comments</p>";
+      } else {
+        echo "<p>No form data submitted.</p>";
+      }
+      ?>
+    </div>
+  </div>
+</body>
+</html>
+
+-->
