@@ -6,3 +6,9 @@ video/*.gif
 *.jpg
 *.jpeg
 *.png
+
+# Local configuration and runtime output.
+.env
+*.log
+/storage/
+/vendor/

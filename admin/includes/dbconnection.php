@@ -1,7 +1,5 @@
 <?php
-$con=mysqli_connect("localhost", "root", "", "junglebook");
-if(mysqli_connect_errno()){
-echo "Connection Fail".mysqli_connect_error();
-}
 
-  ?>
+require_once __DIR__ . '/../../app/Database/connection.php';
+
+$con = app_database_connection();

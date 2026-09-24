@@ -1,12 +1,5 @@
 <?php
-        $host = 'localhost';
-        $user = 'root';
-        $pass = '';
-        $dbname = 'junglebook';
 
+require_once __DIR__ . '/app/Database/connection.php';
 
-        $conn = mysqli_connect($host, $user, $pass, $dbname);
-        if (!$conn) {
-            die('could not connect:' . mysqli_connect_error());
-        }
-        ?>
+$conn = app_database_connection();

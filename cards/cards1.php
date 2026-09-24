@@ -1,14 +1,6 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "junglebook";
-$conn = new mysqli($servername,$username,$password,$dbname);
-if($conn->connect_error)
-{
-    die("not connect..".$conn->connect_error);
-}
-else{?>
+require_once __DIR__ . '/../conn.php';
+?>
 
 
 <!DOCTYPE HTML>

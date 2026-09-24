@@ -1,15 +1,6 @@
 <?php
-        $host = 'localhost';
-        $user = 'root';
-        $pass = '';
-        $dbname = 'junglebook';
+require_once __DIR__ . '/conn.php';
 
-
-        $conn = mysqli_connect($host, $user, $pass, $dbname);
-        if (!$conn) {
-            die('could not connect:' . mysqli_connect_error());
-        }
-        else{
             if(isset($_POST['submit']))
   {
     $aname=$_POST['fullName'];
@@ -109,7 +100,6 @@
 </body>
 </html>
 
-<?php } ?>
 <style>
     body {
   font-family: 'Arial', sans-serif;

@@ -2,15 +2,9 @@
 
 Jungle Book is a PHP/MySQL website for an environmental and wildlife-focused non-governmental organization. The project presents the organization, its forest education work, environmental social work, tribal initiatives, gallery, contact forms, and visitor services through a responsive web interface.
 
-![Jungle Book logo](images/mix_01.png)
-
 ## Project Preview
 
-![Jungle Book landscape](images/leh-ladhakh.jpg)
-
-![Forest education](images/edu1.jpg)
-
-![Jungle Book gallery](images/tribel01.jpg)
+Project media is stored locally and excluded from Git because of repository size. A deployment package or object storage bucket should provide the contents of `images/` and `video/`.
 
 ## Features
 
@@ -50,6 +44,8 @@ Jungle Book is a PHP/MySQL website for an environmental and wildlife-focused non
 └── js/                    # Shared JavaScript and vendor scripts
 ```
 
+The maintainable architecture and migration boundary are documented in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md). New database and application code should use `app/` instead of adding more root-level page scripts.
+
 ## Requirements
 
 - PHP 7.4 or newer with the MySQLi extension
@@ -62,7 +58,7 @@ Jungle Book is a PHP/MySQL website for an environmental and wildlife-focused non
 1. Clone or copy the project into your web server document root.
 2. Create a MySQL database named `junglebook`.
 3. Import the project database schema and seed data if available.
-4. Review the connection values in `conn.php` and `admin/includes/dbconnection.php`.
+4. Copy `.env.example` to `.env` and set the local database values.
 5. Start Apache and MySQL.
 6. Open the project in a browser, for example:
 
@@ -79,7 +75,7 @@ http://localhost/aesthetic/admin/index.php
 ## Configuration Notes
 
 - Keep database credentials outside version control for production deployments.
-- The public site and admin area currently use separate connection files.
+- The public site and admin area share one connection implementation through compatibility wrappers.
 - Uploaded admin images are stored in `admin/images/`.
 - Email and OTP-related forms may require SMTP configuration before they work outside a local environment.
 
